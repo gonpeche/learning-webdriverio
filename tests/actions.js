@@ -1,4 +1,4 @@
-// import { short } from '../lib/timeouts'
+import { short } from '../lib/timeouts'
 
 describe('Browser Actions', () => {
     it('Inputs', () => {
@@ -14,9 +14,9 @@ describe('Browser Actions', () => {
     })
 
     it('Click', () => {
-        const buttonPupulate = $('#populate')
-        buttonPupulate.waitForExist()
-        buttonPupulate.click()
+        const buttonPopulate = $('#populate')
+        buttonPopulate.waitForExist()
+        buttonPopulate.click()
     })
 
     it('Checkbox & Radio Button', () => {
