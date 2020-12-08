@@ -1,6 +1,8 @@
+import App from '../page-objects/App'
+
 describe('E2E Tests - Currency Exchange', () => {
     it('Should log into application', () => {
-        browser.url('http://zero.webappsecurity.com/index.html')
+        App.openHomepage()
         $('#signin_button').waitForExist()
         $('#signin_button').click()
         $('#login_form').waitForExist()
