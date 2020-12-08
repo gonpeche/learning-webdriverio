@@ -1,28 +1,27 @@
 import LoginPage from '../page-objects/pages/LoginPage'
+import Navbar from '../page-objects/components/Navbar'
 import App from '../page-objects/App'
 
 describe('E2E Tests - Login / Logout Flow', () => {
     it('Should not login with invalid credentials', () => {
         App.openHomepage()
-        $('#signin_button').waitForExist()
-        $('#signin_button').click()
+        Navbar.clickSignIn()
         LoginPage.pauseShort()
         LoginPage.formIsVisible()
         LoginPage.fillForm('invalid name', 'invalid password')
         LoginPage.submitForm()
 
-        const error = $('.alert-error')
-        expect(error).toHaveText('Login and/or password are wrong.')
+        const message = LoginPage.error
+        expect(message).toHaveText('Login and/or password are wrong.')
     })
 
     it('Should login with valid credentials', () => {
         App.openHomepage()
-        $('#signin_button').waitForExist()
-        $('#signin_button').click()
+        Navbar.clickSignIn()
         LoginPage.formIsVisible()
         LoginPage.fillForm('username', 'password')
         LoginPage.submitForm()
-        $('.nav-tabs').waitForExist()
+        Navbar.insideNavbarIsVisible()
     })
 
     it('Should logout from app', () => {
