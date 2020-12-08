@@ -14,6 +14,10 @@ class Navbar extends Base {
         this.signInButton.click()
     }
 
+    signInButtonIsVisible() {
+        this.signInButton.waitForExist()
+    }
+
     insideNavbarIsVisible() {
         this.insideNavbar.waitForExist()
     }

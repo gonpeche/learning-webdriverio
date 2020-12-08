@@ -25,10 +25,7 @@ describe('E2E Tests - Login / Logout Flow', () => {
     })
 
     it('Should logout from app', () => {
-        $('.icon-user').waitForExist()
-        $('.icon-user').click()
-        $('#logout_link').waitForExist()
-        $('#logout_link').click()
-        $('#pages-nav').waitForExist()
+        App.logout()
+        Navbar.signInButtonIsVisible()
     })
 })
