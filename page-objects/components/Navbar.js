@@ -1,6 +1,10 @@
 import Base from '../Base'
 
 class Navbar extends Base {
+    get searchbox() {
+        return $('#searchTerm')
+    }
+
     get signInButton() {
         return $('#signin_button')
     }
@@ -9,17 +13,40 @@ class Navbar extends Base {
         return $('.nav-tabs')
     }
 
-    clickSignIn() {
-        this.signInButton.waitForExist()
-        this.signInButton.click()
+    get settingsButton() {
+        return $('.icon-cog')
+    }
+
+    get helpButton() {
+        return $('#help_link')
+    }
+
+    search(text) {
+        this.searchbox.waitForExist()
+        this.searchbox.setValue(text)
+        browser.keys('Enter')
     }
 
     signInButtonIsVisible() {
         this.signInButton.waitForExist()
     }
 
+    clickSignIn() {
+        this.signInButton.waitForExist()
+        this.signInButton.click()
+    }
+
     insideNavbarIsVisible() {
         this.insideNavbar.waitForExist()
+    }
+
+    clickSettings() {
+        this.settingsButton.waitForExist()
+        this.settingsButton.click()
+    }
+
+    clickHelp() {
+
     }
 }
 
